@@ -10,11 +10,31 @@ Modify the number of repetitions in the simulation to 100 (from the original 100
 
 Alter the code so that it is reproducible. Describe the changes you made to the code and how they affected the reproducibility of the script file. The output does not need to match Whitby’s original blogpost/graphs, it just needs to produce the same output when run multiple times
 
-# Author: YOUR NAME
+# Author: Yangmin Qiu
 
 ```
-Please write your explanation here...
+1, It used simple random samples for choosing which 200 persons to attend wedding and all left attend brunches with the code: events = ['wedding'] * 200 + ['brunch'] * 800.
+2, When choosing the initiate infection peoples, simple random samples was used based on the ATTACK_RATE = 0.10 with the code:infected_indices = np.random.choice(ppl.index, size=int(len(ppl) * ATTACK_RATE), replace=False)
+ppl.loc[infected_indices, 'infected'] = True. Here, the sample size is 100.
+3, When collecting the traced samples, it still used simple random samples to choose with a sample size 20 from the infected people that can be successfully traced for both primiary contact tracing and secondary contact tracing with the code: ppl.loc[ppl['infected'], 'traced'] = np.random.rand(sum(ppl['infected'])) < TRACE_SUCCESS
+event_trace_counts = ppl[ppl['traced'] == True]['event'].value_counts()
+  events_traced = event_trace_counts[event_trace_counts >= SECONDARY_TRACE_THRESHOLD].index
+  ppl.loc[ppl['event'].isin(events_traced) & ppl['infected'], 'traced'] = True
+4, When they compare the infections and traces, they used clustering sampling that samples are divided into wedding or brunches groups and analysis both clusters.
+ppl['event_type'] = ppl['event'].str[0]  # 'w' for wedding, 'b' for brunch
+  wedding_infections = sum(ppl['infected'] & (ppl['event_type'] == 'w'))
+  brunch_infections = sum(ppl['infected'] & (ppl['event_type'] == 'b'))
+  p_wedding_infections = wedding_infections / (wedding_infections + brunch_infections)
 
+  wedding_traces = sum(ppl['infected'] & ppl['traced'] & (ppl['event_type'] == 'w'))
+  brunch_traces = sum(ppl['infected'] & ppl['traced'] & (ppl['event_type'] == 'b'))
+  p_wedding_traces = wedding_traces / (wedding_traces + brunch_traces)
+
+
+After chenge the number of repetitions in the simulation to 100, there are always some cases that infected from wedding not being traced and each stimulation showed different results.
+
+
+To make the code repreducible, I used the np.random.seed function to set a global seed.
 ```
 
 
