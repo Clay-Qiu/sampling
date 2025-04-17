@@ -40,27 +40,31 @@ For the **Canadian General Social Survey on Giving, Volunteering, and Participat
 
 ## Part A - Survey Design: 
 
-The number of your chosen topic: `#`
+The number of your chosen topic: `1`
 
 Describe the purpose of your survey:
 ```
-write your answer here...
+This survey is to collect employees' opinion about the company's working environment and workload. The collected information will be used to modify the company's policy or structure to solve the problem of high turnover rate that observed especially within the entry- and lower-level positions.
 ```
 
 Describe your target population, sampling frame, sampling units, and observational units:
 ```
-write your answer here...
+Target population: all employees.
+Sampling frame: It will be delivered through the company email to all employees.
+Sampling units: Employees from the different departments.
+Obeservational units: Employees at different level positions (Entry-, Lower-, Senior-)
+
 ```
 
 Your 5-10 question survey:
 ```
-1. write your question here...
-2. write your question here...
-3. write your question here...
-4. write your question here...
-5. write your question here...
-6. write your question here... (optional)
-7. write your question here... (optional)
+1. What's the depertment you belong to?
+2. How long since you join the company?
+3. What's is your current position level?
+4. Do you feel comfortable of the company working environment?
+5. Do you feel satified with the current working load?
+6. Do you believe your work is being paid fairly?
+7. Do you think the company's promotion strategy fit your career development expectation?
 8. write your question here... (optional)
 9. write your question here... (optional)
 10. write your question here... (optional)
@@ -71,7 +75,31 @@ Your 5-10 question survey:
 Identify and describe survey features:
 
 ```
-write your answer here
+1. Sample type: It uses a stratified multistage random sampling design
+2. Sample size: 4430
+3. Target population: all persons 15 years of age and older living in the ten provinces of Canada. It excludes full-time (residing for more than six months) residents of institutions.
+4. Sampling frame: This survey uses a frame that combines landline and cellular telephone numbers from the Census and various administrative sources with Statistics Canada's dwelling frame. Records on the frame are groups of one or several telephone numbers associated with the same address (or single telephone number in the case a link between a telephone number and an address could not be established).
+5. Survey mode(s): It combines landline and cellular telephone numbers
+6. Timeline: Data were collected from September to December in 2018 and the result was released on January 26, 2021.
+7. Response rate: The overall response rate is 41.9%.
+8. Weights: A weighting factor is available on the microdata file:
+
+WGHT_PER: This is the basic weighting factor for analysis at the person level, i.e. to calculate estimates of the number of persons (non-institutionalized and aged 15 or over) having one or several given characteristics.
+
+In addition to the estimation weights, bootstrap weights have been created for the purpose of design-based variance estimation.
+
+Estimates based on the survey data are also adjusted (by weighting) so that they are representative of the target population with regard to certain characteristics (each month we have independent estimates for various age-sex groups by province). To the extent that the characteristics are correlated with those independent estimates, this adjustment can improve the precision of estimates.
+9. Data processing: It go through the Data Capture; Data Editing and Cleaning; Coding and Classification; Weighting; Confidentiality and Anonymization; Quality Assurance; Data Integration and Dissemination
+10. Cleaning, imputation, etc: Logical Consistency Checks:
+Identify contradictions (e.g., a respondent claiming to volunteer 50 hours/week but reporting unemployment).
+Flag outliers or implausible values for review.
+Handling Missing Data:
+Use imputation for critical variables (e.g., income) if nonresponse is high, employing statistical methods to fill gaps while preserving data integrity.
+Non-critical missing data may remain as-is, with documentation for analysts.
+11. Sources of error: Non-sampling error; Coverage error; Other non-sampling errors.
+12. Limitations, known biases, etc: Institutionalized individuals and homeless populations were excluded and only aged 15+ were included. It also introduce the non-response bias, social desirability bias,recall bias. Telephone-Based Sampling Limitations: Reliance on landline and mobile phone directories, Address-Based Sampling: While used to supplement coverage, it may miss informal housing arrangements or remote areas.
+13. Link to documentation and any additional sources used:
+https://www23.statcan.gc.ca/imdb/p2SV.pl?Function=getSurvey&Id=796234
 ```
 
 ## Rubric
@@ -85,7 +113,7 @@ write your answer here
 🚨 **Please review our [Assignment Submission Guide](https://github.com/UofT-DSI/onboarding/blob/main/onboarding_documents/submissions.md)** 🚨 for detailed instructions on how to format, branch, and submit your work. Following these guidelines is crucial for your submissions to be evaluated correctly.
 
 ### Submission Parameters:
-* Submission Due Date: `23:59 - 23/02/2025`
+* Submission Due Date: `23:59 - 18/04/2025`
 * The branch name for your repo should be: `assignment-2`
 * What to submit for this assignment:
     * This markdown file (a2_survey_design_and_evaluation.md) should be populated and should be the only change in your pull request.
